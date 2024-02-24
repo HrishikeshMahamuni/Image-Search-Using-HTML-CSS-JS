@@ -1,0 +1,39 @@
+if(page === 1){
+        searchResults.innerHTML = ""
+    }
+
+    result.map((result) =>{
+
+        const imageWrapper = document.createElement('div')
+        imageWrapper.classList.add("search-result")
+
+        const image = document.createElement('img')
+        image.src = result.URL.small
+        image.alt = result.alt_description
+
+        const imgLink = document.createElement('a')
+        imgLink.href = result.links.html
+        imgLink.target = "_blank"
+        imgLink.textContent = result.alt_description
+
+        imageWrapper.appendChild(image)
+        imageWrapper.appendChild(imgLink)
+        searchResults.appendChild(imageWrapper)
+
+
+    });
+    page++;
+    if(page > 1)
+    {
+        showMore.style.display = "block"
+    }
+}
+formEle.addEventListener("submit", (eve) =>  {
+    event.preventDefault;
+    page1;
+    searchImages()
+});
+
+showMore.addEventListener("click", () =>  { 
+    searchImages()
+});
